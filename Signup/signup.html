@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo/signuo.css" />
+    <link
+      rel="stylesheet"
+      href="../src/notie-master/notie-master/dist/notie.min.css"
+    />
+    <title>rede Social</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rede Social</h1>
+    </header>
+
+    <main id="main-content">
+      <section id="register-info-conteiner">
+        <h2>Crie uma Conta</h2>
+        <p id="subtitle">Conecte se com seus amigos hoje!</p>
+
+        <article id="name-conteiner">
+          <div class="register-box">
+            <input
+              type="text"
+              class="inputs-info"
+              id="register-user-name"
+              placeholder="Seu nome"
+            />
+          </div>
+          <div class="register-box">
+            <input
+              type="text"
+              class="inputs-info"
+              id="register-user-last-name"
+              placeholder="Seu ultimo nome"
+            />
+          </div>
+        </article>
+        <div class="register-box">
+          <input
+            type="email"
+            name=""
+            class="inputs-info"
+            id="register-user-email"
+            placeholder="Seu email"
+          />
+        </div>
+        <div class="register-box">
+          <input
+            type="tel"
+            name=""
+            class="inputs-info"
+            id="register-user-phoneNumber"
+            onkeyup=""
+            placeholder="Seu número de celular"
+          />
+        </div>
+        <div class="register-box">
+          <input
+            type="password"
+            name=""
+            class="inputs-info"
+            id="register-user-password"
+            placeholder="Sua Senha"
+          />
+        </div>
+        <div class="register-box">
+          <input
+            type="password"
+            name=""
+            class="inputs-info"
+            id="register-user-password-confirm"
+            placeholder=" Confirma a Sua Senha"
+          />
+        </div>
+
+        <input
+          type="submit"
+          value="Cadastrar"
+          class="inputs-buttons"
+          id="submit-button"
+        />
+
+        <input
+          type="button"
+          value="Continuar com o Google"
+          class="inputs-buttons"
+          id="loged-in"
+        />
+      </section>
+    </main>
+    <footer>
+      <p>&copy; Rede Social | Criado por Victor | 2023</p>
+    </footer>
+    <script src="script/signup.js"></script>
+    <script src="../src/data-base/storage.js"></script>
+    <script src="../src/notie-master/notie-master/dist/notie.min.js"></script>
+  </body>
+</html>

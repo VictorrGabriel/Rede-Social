@@ -1,0 +1,135 @@
+@charset "UTF-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: content-box;
+}
+
+:root {
+  --cor-maincolor: #023047;
+  --cor-secondary: #8ecae6;
+  --cor-s1: #8e9aaf;
+  --cor-s2: #219ebc;
+  --cor-s3: #fe7b7b;
+  --cor-s4: #e280e2;
+}
+
+body {
+  background-color: var(--cor-secondary);
+}
+
+header {
+  background-color: var(--cor-maincolor);
+  text-align: center;
+  color: white;
+  height: 75px;
+  line-height: 75px;
+}
+
+main {
+  background-color: white;
+  border-radius: 10px;
+  max-width: 200px;
+  margin: auto;
+  margin: 1rem auto;
+  padding: 30px 20px 20px 20px;
+  text-align: center;
+  box-shadow: 0px 1px 5px #00000073;
+}
+
+main h1 {
+  margin-bottom: 0.8rem;
+  font-family: 'Lato', sans-serif;
+}
+
+#user-info-conteiner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.8em;
+  margin-bottom: 1rem;
+}
+
+.info-user-box {
+  display: flex;
+  flex-direction: column;
+  margin: 0.4rem 0;
+}
+
+.info-user-box > input {
+  padding: 0.4rem;
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 2px;
+  box-shadow: -1px 2px 2px #00000026;
+}
+
+.info-user-box > input:focus {
+  background-color: var(--cor-secondary);
+}
+
+.info-user-box > label {
+  align-self: baseline;
+}
+
+a {
+  all: unset;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--cor-s2);
+  text-decoration: underline;
+}
+
+#forgotten-password {
+  font-size: 0.8em;
+  align-self: end;
+  margin: 4px 0 10px 0;
+}
+
+button {
+  background-color: var(--cor-secondary);
+  border: 1px solid;
+  border-radius: 3px;
+  width: 180px;
+  padding: 3px;
+  margin-bottom: 1rem;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+#ways-to-login {
+  display: flex;
+  justify-content: center;
+  margin: 0.5rem 0 4rem 0;
+}
+
+#login-twitterx {
+  color: black;
+  font-size: 32px;
+}
+
+.login-with {
+  margin: 0 8px 0 8px;
+}
+
+#label-signup-link {
+  margin: 30px 0 5px 0;
+}
+
+footer {
+  background-color: var(--cor-maincolor);
+  color: white;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  height: 60dvh;
+}

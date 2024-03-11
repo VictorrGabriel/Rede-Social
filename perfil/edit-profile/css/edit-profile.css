@@ -1,0 +1,26 @@
+
+main{
+    display: block;
+}
+
+main h2{
+    text-align: center;
+}
+
+#btn-back-page{
+    clear: unset;
+    padding: 0;
+    margin: 0;
+    height: 1.1rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    text-align: center;
+
+}
+
+#btn-back-page:hover{
+    text-decoration: underline;
+    color: white;
+}

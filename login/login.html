@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-Br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilo/login.css" />
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+  />
+  <link rel="stylesheet" href="src/notie-master/dist/notie.min.css">
+
+    <title>Rede Social</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rede Social</h1>
+    </header>
+
+    <main>
+      <h1>Login</h1>
+
+      <section id="user-info-conteiner">
+        <div id="email-box" class="info-user-box">
+          <label for="email">Email do Usuário</label>
+          <input type="email" name=""   id="email" placeholder="Insira Seu email">
+        </div>
+        <div id="password-box" class="info-user-box">
+          <label for="password">Senha</label>
+          <input type="password" name="" id="password" placeholder="Insira sua Senha">
+          <a href="#" id="forgotten-password" target="_self">Esqueceu sua senha?</a>
+        </div>
+        
+        <button id="login-btn">LOGIN</button>
+      </section>
+      <p>Conecte-se usando</p>
+
+      <div id="ways-to-login"> 
+        <a href="#" id="login-facebook" class="login-with"><img src="images/icon-facebook.png" width="33px" alt="Logo do Facebook"></a>
+
+        <a href="#" id="login-twitterx" class="login-with"><i class="bi bi-twitter-x"></i></a>
+  
+        <a href="#" id="login-google" class="login-with"><img src="images/icon-google.png" width="33px" alt="Logo do Google"></i></a>
+      </div>
+
+     
+      
+      <p id="label-signup-link">Ou cadastre-se usando</p>
+
+      <a href="../Signup/signup.html" id="signup-link">Cadastrar</a>
+    </main>
+    
+    <footer>
+      <p>&copy; Rede Social | Criado por Victor | 2023</p>
+    </footer>
+    <script src="script/login.js"></script>
+    <script src="../src/data-base/storage.js"></script>
+    <script src="src/notie-master/dist/notie.min.js"></script>
+  </body>
+</html>

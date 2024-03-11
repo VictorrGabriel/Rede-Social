@@ -1,0 +1,16 @@
+@charset "UTF-8";
+
+:root {
+  --cor0: #782180;
+  --cor1: #3d2140;
+  --cor2: #78218039;
+}
+
+section#side_block{
+    width: 200px;
+    height: 400px;
+    border: solid #3d2140;
+    display: inline-block;
+
+}
+

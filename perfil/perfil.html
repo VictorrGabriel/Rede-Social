@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="estilos/perfil.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css"
+    />
+    <title>Rede Social</title>
+  </head>
+  <body>
+    <header>
+      <h1>Rede Social</h1>
+    </header>
+    <main>
+      <section id="main-sidebar-profile-conteiner">
+        <div id="profile-picture"></div>
+        <div id="name-profile-sidebar"></div>
+        <div id="profile-title"></div>
+        <div id="profile-title-01"></div>
+        <div id="profile-title-02"></div>
+        <div id="profile-title-03"></div>
+        <section class="follow-info">
+          <div id="followers"></div>
+          |
+          <div id="following"></div>
+        </section>
+        <section class="follow-info">
+          <a href="#">Seguidores </a>
+          <a href="#">Seguindo</a>
+        </section>
+        <input type="button" value="Editar" id="bottun-edit-profile" />
+      </section>
+      <section id="info-account-conteiner">
+        <h1>Minha Conta</h1>
+        <p>Visualize e edite as suas informações perssoais</p>
+        <hr />
+        <p>Email de login:</p>
+        <div id="email-conteiner" class="profile-info-01"></div>
+        <p>URL da sua paginá da comunidade</p>
+        <div id="url-comunity-conteiner" class="profile-info-01">
+          <p>Esse é o seu URL personalizado que os outros membros podem ver</p>
+        </div>
+        <section id="profile-info-conteiner">
+          <div class="profile-info-name wrap-info">
+            <label for="name-profile">Nome</label>
+            <input
+              type="text"
+              id="name-profile"
+              class="profile-info"
+              disabled
+            />
+          </div>
+          <div class="profile-info-lastname wrap-info">
+            <label for="lastname-profile">Sobrenome</label>
+            <input
+              type="text"
+              id="lastname-profile"
+              class="profile-info"
+              disabled
+            />
+          </div>
+
+          <div class="profile-info-name wrap-info">
+            <label for="name-age">Idade</label>
+            <input type="text" id="age-profile" class="profile-info" disabled />
+          </div>
+          <div class="profile-info-lastname wrap-info">
+            <label for="number-profile">Número</label>
+            <input
+              type="number"
+              id="number-profile"
+              class="profile-info"
+              disabled
+            />
+          </div>
+        </section>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; Rede Social | Victor Gabriel 2023</p>
+    </footer>
+    <script src="scripts/perfil.js"></script>
+    <script src="../src/data-base/storage.js"></script>
+  </body>
+</html>
