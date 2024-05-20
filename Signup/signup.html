@@ -3,11 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="estilo/signuo.css" />
-    <link
-      rel="stylesheet"
-      href="../src/notie-master/notie-master/dist/notie.min.css"
-    />
+    <link rel="stylesheet" href="styles/signup.css" media="all" />
+    <link rel="stylesheet" href="styles/animation.css" />
+    <link rel="stylesheet" href="styles/mediaqueries.css" />
+    <!-- Screen Width -->
     <title>rede Social</title>
   </head>
   <body>
@@ -15,81 +14,108 @@
       <h1>Rede Social</h1>
     </header>
 
-    <main id="main-content">
-      <section id="register-info-conteiner">
-        <h2>Crie uma Conta</h2>
-        <p id="subtitle">Conecte se com seus amigos hoje!</p>
+    <main>
+      <h1>Crie uma Conta</h1>
+      <p>Conecte se com seus amigos hoje!</p>
 
-        <article id="name-conteiner">
-          <div class="register-box">
-            <input
-              type="text"
-              class="inputs-info"
-              id="register-user-name"
-              placeholder="Seu nome"
-            />
-          </div>
-          <div class="register-box">
-            <input
-              type="text"
-              class="inputs-info"
-              id="register-user-last-name"
-              placeholder="Seu ultimo nome"
-            />
-          </div>
-        </article>
-        <div class="register-box">
+      <form method="post" autocomplete="on" id="form">
+        <div class="fields">
+          <input
+            type="text"
+            class="required"
+            id="user-full-name"
+            placeholder="Nome Completo"
+            autocomplete="name"
+            title="Preencha com nome e sobrenome"
+            name="name"
+            required
+          />
+          <span class="error-message"></span>
+        </div>
+        <!-- Fazer a validação por js -->
+        <div class="fields">
           <input
             type="email"
-            name=""
-            class="inputs-info"
-            id="register-user-email"
-            placeholder="Seu email"
+            class="required"
+            id="user-email"
+            placeholder="Email"
+            autocomplete="email"
+            name="email"
+            required
           />
         </div>
-        <div class="register-box">
+
+        <div class="fields">
+          <input
+            type="date"
+            class="required"
+            id="user-birth-date"
+            name="birthDate"
+            title="Insira a sua data de nascimento."
+            required
+          />
+          <span class="error-message"></span>
+          <!-- Calcular a idade do Usuário -->
+        </div>
+        <div class="fields">
           <input
             type="tel"
-            name=""
-            class="inputs-info"
-            id="register-user-phoneNumber"
-            onkeyup=""
-            placeholder="Seu número de celular"
+            class="required"
+            id="user-number"
+            minlength="17"
+            maxlength="17"
+            pattern="[+]\d{2}\s\d{2}\s\d{5}-\d{4}"
+            placeholder="Seu Número"
+            autocomplete="tel"
+            title=""
+            name="number"
+            required
           />
+          <!-- Adicionar atributo de  -->
         </div>
-        <div class="register-box">
+
+        <div class="fields">
           <input
             type="password"
-            name=""
-            class="inputs-info"
-            id="register-user-password"
-            placeholder="Sua Senha"
+            class="required"
+            id="password"
+            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[$*&@#-ç_+=])(?:([0-9a-zA-Z$*&@#-ç_+=])(?!\1)){8,}$"
+            title="A sua senha deve conter: ($*@...), pelo menso uma letra maiúscula e uma minúscula, 8 caracteres no total e sem sequências (11 ou aa). "
+            placeholder="Senha"
+            autocomplete="new-password"
+            name="password"
+            required
           />
+          <!--  -->
         </div>
-        <div class="register-box">
+        <div class="fields">
           <input
             type="password"
+            class="required"
+            id="confirm-password"
+            placeholder="Confirme sua senha"
             name=""
-            class="inputs-info"
-            id="register-user-password-confirm"
-            placeholder=" Confirma a Sua Senha"
+            required
           />
+          <span class="error-message"></span>
         </div>
+
+        <input type="hidden" name="userAge" id="user-age" />
 
         <input
           type="submit"
           value="Cadastrar"
-          class="inputs-buttons"
-          id="submit-button"
+          id="btn-sign-up"
+          class="button"
         />
 
-        <input
-          type="button"
-          value="Continuar com o Google"
-          class="inputs-buttons"
-          id="loged-in"
-        />
-      </section>
+        <hr>
+        
+        <button id="btn-keep-google" class="button">
+          Continuar com o Google
+        </button>
+      </form>
+      <!--   <hr/> -->
     </main>
     <footer>
       <p>&copy; Rede Social | Criado por Victor | 2023</p>

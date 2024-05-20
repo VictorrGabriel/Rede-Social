@@ -1,29 +1,54 @@
-const $email = document.getElementById('email');
-const $password = document.getElementById('password');
-const $login = document.getElementById('login-btn');
-const userData = JSON.parse(localStorage.getItem('userInfo'));
+document.addEventListener("DOMContentLoaded", () => {
 
-function isAvaibleUserInfos() {
-  if (
-    $email.value !== userData[0].email ||
-    $password.value !== userData[0].password
-  ) {
-    throw new Error('Email ou Senha é inválidos!');
-  } else {
-    return true;
-  }
+    let userData = [{name: "Victor", email: "vg154476@gamil.com", password: "Victor123"}]
 
-}
+    const $email = document.getElementById('email');
+    const $password = document.getElementById('password');
+    const $login = document.getElementById("login-btn");
+    const $form = document.getElementById('form');
+    /* const userData = JSON.parse(localStorage.getItem('userInfo')); */
+  
+  
+    $form.addEventListener("submit", e => {
+      
+      if(!isValidUserInfos()){
+        e.preventDefault()
+      }
+    })
 
-function goToProfile() {
-  try {
-    if (isAvaibleUserInfos()) {
-      location.href = '../perfil/perfil.html';
-    } 
-  } catch (error) {
-    console.error(error.message);
-    notie.alert({ type: 'error', text: error.message });
-  }
-}
+    $login.addEventListener("click", () => {
+      $login.classList.add("clickButton");
+      setTimeout(() => {
+        $login.classList.remove("clickButton");
+      }, 300)
+    })
 
-$login.addEventListener('click', goToProfile);
+    
+
+
+    
+    
+    function isValidUserInfos() {
+      let validUserInfos = true
+      try{
+
+    
+        if (
+          $email.value !== userData[0].email ||
+          $password.value !== userData[0].password
+        ) {
+          validUserInfos = false
+          throw new Error('Email ou Senha é inválidos!');
+          
+        } 
+    
+      }catch (error) {
+        console.error(error.message);
+        notie.alert({ type: 'error', text: error.message });
+      }finally{
+        return validUserInfos
+        
+      }
+    }
+})
+

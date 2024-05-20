@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        body{
+            background-color: aqua;
+            overflow-x: hidden;
+        }
+
+        section.wrap{
+            display: flex;
+            justify-content: center;
+        }
+
+        div.teste{
+            background-color: white;
+            max-width: 200px;
+            border-radius: 10px;
+            height: 500px;
+
+
+        }
+
+        .hidden{
+
+            display: none;
+        }
+        #passar{
+            align-self: flex-end;
+        }
+
+        @keyframes slide {
+            from{
+                transform: translateX( 300px);
+            }
+
+            to{
+                transform: translateX(0);
+            }
+        }
+
+        .slide{
+            animation: slide .6s ease-in-out 0s 1 normal none;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <section class="wrap">
+        <div class="teste " id="div_1">1<input type="text" name="" id=""></div>
+        <div class="teste hidden" id="div_2">2<input type="text" name="" id=""></div></div>
+        <div class="teste hidden" id="div_3">3<input type="text" name="" id=""></div></div>
+        <button id="passar" >Passar</button>
+    </section>
+
+    <script>
+        const father = document.querySelector(".wrap");
+        const kids = father.firstElementChild
+        const passar = document.getElementById("passar");
+
+        passar.addEventListener("click", () => {
+            if(!kids.classList.contains("hidden")){
+                kids.classList.add("hidden");
+
+
+                kids.nextElementSibling.classList.remove("hidden");
+
+                setTimeout(() => {
+                    kids.nextElementSibling.classList.add("slide");
+                })
+
+
+            } else if(!kids.nextElementSibling.classList.contains("hidden")){
+                kids.nextElementSibling.classList.add("hidden")
+
+
+                kids.nextElementSibling.nextElementSibling.classList.remove("hidden");
+
+                setTimeout(() => {
+                    kids.nextElementSibling.nextElementSibling.classList.add("slide");
+                })
+
+            } else if(!kids.nextElementSibling.nextElementSibling.classList.contains("hidden")){
+                kids.classList.remove("hidden");
+
+                setTimeout(() => {
+                    kids.classList.add("slide");
+                })
+
+                kids.nextElementSibling.nextElementSibling.classList.add("hidden");
+
+            }
+
+        })
+        
+        console.log(kids.nextElementSibling.nextElementSibling)
+       
+    </script>
+    
+</body>
+</html>

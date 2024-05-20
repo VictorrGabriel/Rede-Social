@@ -1,0 +1,22 @@
+@media screen and (min-height: 620px) {
+  header {
+    background-color: var(--cor-maincolor);
+    text-align: center;
+    color: white;
+    height: 75px;
+    line-height: 75px;
+  }
+
+  footer {
+    background-color: var(--cor-maincolor);
+    color: white;
+    text-align: center;
+    height: 30px;
+    line-height: 30px;
+    height: 50px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+}

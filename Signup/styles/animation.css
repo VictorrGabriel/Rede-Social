@@ -1,0 +1,14 @@
+@keyframes clickButton {
+    from{
+        transform: translateY(5px);
+
+    }
+
+    to{
+        transform: translateY(0px);
+    }
+}
+
+.clickButton{
+    animation: clickButton .3s ease-in-out 0s 1 normal none;
+}

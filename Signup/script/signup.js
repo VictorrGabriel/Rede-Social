@@ -1,80 +1,138 @@
-const $userName = document.getElementById('register-user-name');
-const $userLastName = document.getElementById('register-user-last-name');
-const $userEmail = document.getElementById('register-user-email');
-const $userPassword = document.getElementById('register-user-password');
-const $confirmPassword = document.getElementById(
-  'register-user-password-confirm'
-);
-const $phoneNumber = document.getElementById('register-user-phoneNumber');
-const $submitButton = document.getElementById('submit-button');
-const $nameConteiner = document.getElementById('name-conteiner');
-const $keepGoogle = document.getElementById('google-account-button');
-let date = new Date();
-const year = date.getFullYear();
-const userData = JSON.parse(localStorage.getItem('userInfo'));
+document.addEventListener("DOMContentLoaded", function () {
+  const form = document.getElementById("form");
 
-function keepSigningUp() {
-  try {
-    if (validUserInfo()) {
-      addUserInfo();
-      updateLocalStorage();
-      location.href = '../perfil/perfil.html';
+  console.log("o8@vicPas")
+
+  /* Encio de formulário */
+
+  form.addEventListener("submit", function (e) {
+    let data = new FormData(form);
+    resetErrorMessage();
+    e.preventDefault();
+    if (!validPasswords() || !validBirthDate() || !validNameField()) {
+      e.preventDefault(); // previnir envio do formulário
+    } else {
+      for (let [key, value] of data.entries()) {
+        console.log(`${key}: ${value}`);
+      }
     }
-  } catch (error) {
-    console.error(error.message);
-    notie.alert({ type: 'error', text: error.message });
-  }
-}
+  });
 
-function validUserInfo() {
-  if ($userName.value.length < 3 || !isNaN($userName.value)) {
-    throw new Error('Nome de usuário inválido!');
-  } else if ($userLastName.value.length < 3 || !isNaN($userLastName.value)) {
-    throw new Error('Ultimo nome de usuário inválido!');
-  } else if ($userEmail.value.length === 0 || !isNaN($userEmail)) {
-    throw new Error('Email de usuário inválido!');
-  } else if (userData !== null) {
-    if ($userEmail.value === userData[0].email) {
-      throw new Error('Email já registrado!');
+  function validNameField() {
+    const userFullName = document.getElementById("user-full-name");
+    const userName = userFullName.value;
+    const message = userFullName.parentElement.querySelector(".error-message");
+
+    let validField = true;
+
+    if (!userName | (userName.length < 8)) {
+      message.textContent = "Por favor, Insira o seu nome completo.";
+      message.style.display = "block";
+      validField = false;
     }
-  } else if ($phoneNumber.value < 0) {
-    throw new Error('Número de Usuário é inválido!');
-  } else if ($userPassword.value.length < 6 || !isNaN($userPassword.value)) {
-    throw new Error('Senha de usuário inválido!');
-  } else if ($confirmPassword.value !== $userPassword.value) {
-    throw new Error('As senhas devem ser iguais!');
-  } else {
-    return true;
+
+    return validField;
   }
-}
 
-let birthDateYear;
+  // Verificar os campo de entrada de data
 
-function getYearFrombirthDate() {
-  let Bdate = $birthDate.value;
-  let birthYear = Bdate.split('-')[0];
-  birthDateYear = year - birthYear;
-}
+  /* const userBirth = document.getElementById("user-birth-date");
+    userBirth.addEventListener("change", function () {
+    const birth = userBirth.value;
+    console.log(birth);
+    console.log(userBirth.value.split("-")[0])} */
 
-function tweakNameArea() {
-  const ww = window.innerWidth;
+  function validBirthDate() {
+    const age = document.getElementById("user-age");
+    const userBirth = document.getElementById("user-birth-date");
+    const birthDate = userBirth.value.split("-");
+    const message = userBirth.parentElement.querySelector(".error-message");
+    const currentDay = new Date().getDate();
+    const currentMonth = new Date().getMonth() + 1;
+    const currentYear = new Date().getFullYear();
 
-  if (ww > 400) {
-    $nameConteiner.classList.add('tweak');
+    let userAge = currentYear - Number(birthDate[0]);
+    let validField = true;
+
+    if (
+      (birthDate[1] > currentMonth) |
+      (birthDate[2] > currentDay && birthDate[1] === currentMonth)
+    ) {
+      userAge--;
+    }
+
+    if (userAge < 16) {
+      message.textContent =
+        "Você deve ter mais de 16 anos para criar uma conta";
+      message.style.display = "block";
+      validField = false;
+    }
+    console.log(userAge);
+    age.value = userAge;
+    return validField;
   }
-  if (ww < 400) {
-    $nameConteiner.classList.remove('tweak');
+
+  function validPasswords() {
+    const password = document.getElementById("password");
+    const confirmPassword = document.getElementById("confirm-password");
+    const span = confirmPassword.parentElement;
+    const message = span.querySelector(".error-message");
+
+    let validField = true;
+
+    if (password.value !== confirmPassword.value) {
+      message.textContent = "As senhas não coinsidem";
+      message.style.display = "block";
+      validField = false;
+    }
+    return validField;
   }
-}
 
-const $logedIn = document.getElementById('loged-in');
+  function resetErrorMessage() {
+    const message = document.querySelectorAll(".error-message");
 
-function alraedyLogedIn() {
-  location.href = '../login/login.html';
-}
+    for (let i = 0; i < message.length; i++) {
+      message[i].textContent = "";
+    }
+  }
+  const userNumberElement = document.getElementById("user-number");
+  /* const userNumber = userNumberElement.value
+  const numberField = userNumber.replace(/(\d{2} \d{5})(\d{4}))/, function(){ 
 
-$logedIn.addEventListener('click', alraedyLogedIn);
+  })*/
 
-window.addEventListener('resize', tweakNameArea);
+  userNumberElement.addEventListener("focusin", function (e) {
+    const userNumberValue = e.target.value;
+    userNumberElement.value = userNumberValue.replace(/[.]/g, "");
+  });
 
-$submitButton.addEventListener('click', keepSigningUp);
+  userNumberElement.addEventListener("focusout", function (e) {
+    const userNumberValue = e.target.value;
+    userNumberElement.value = userNumberValue.replace(
+      /(\d{2})(\d{5})(\d{4})/,
+      "+55 $1 $2-$3"
+    );
+  });
+
+  const buttonSignUp = document.getElementById("btn-sign-up");
+  const buttonKeepWithGoogle = document.getElementById("btn-keep-google");
+
+  buttonKeepWithGoogle.addEventListener("click", () => {
+    buttonKeepWithGoogle.classList.add("clickButton");
+    setTimeout(resetButtonsAnimation, 300)
+    
+  });
+
+  buttonSignUp.addEventListener("click", () => {
+    buttonSignUp.classList.add("clickButton");
+    setTimeout(resetButtonsAnimation, 300)
+    
+  })
+
+  function resetButtonsAnimation () {
+
+    buttonSignUp.classList.remove("clickButton");
+    buttonKeepWithGoogle.classList.remove("clickButton");
+    
+  }
+});

@@ -1,4 +1,4 @@
-function tweak() {
+/* function tweak() {
   const main = document.querySelector('main');
   const nav = document.querySelector('nav');
 
@@ -19,6 +19,7 @@ function tweak() {
   }
 }
 
-tweak()
+tweak();
 
 window.addEventListener('resize', tweak);
+ */

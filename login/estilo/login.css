@@ -26,8 +26,8 @@ header {
   background-color: var(--cor-maincolor);
   text-align: center;
   color: white;
-  height: 75px;
-  line-height: 75px;
+  height: 50px;
+  line-height: 50px;
 }
 
 main {
@@ -70,6 +70,7 @@ main h1 {
 
 .info-user-box > input:focus {
   background-color: var(--cor-secondary);
+  outline: none;
 }
 
 .info-user-box > label {
@@ -92,13 +93,32 @@ a:hover {
   margin: 4px 0 10px 0;
 }
 
+.inputs{
+
+  transition: transform ease .3s;
+}
+
+.inputs:focus{
+  transform: scale(1.05, 1.05);
+}
+
 button {
-  background-color: var(--cor-secondary);
-  border: 1px solid;
-  border-radius: 3px;
-  width: 180px;
-  padding: 3px;
-  margin-bottom: 1rem;
+  background-color: var(--cor-s2);
+    color: white;
+
+    border: 1px solid black;
+    padding: 8px;
+    width: 92%;
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.265);
+
+    margin-bottom: 10px;
+
+    transition: all linear .2s;
+}
+
+button:hover{
+  background-image: linear-gradient(to right, rgb(238, 238, 238), rgb(255, 255, 255), rgb(238, 238, 238));
+    color: var(--cor-s2);
 }
 
 p {
@@ -121,6 +141,10 @@ p {
   margin: 0 8px 0 8px;
 }
 
+.login-with:hover{
+  transform: scale(1.15, 1.15);
+}
+
 #label-signup-link {
   margin: 30px 0 5px 0;
 }
@@ -131,5 +155,5 @@ footer {
   text-align: center;
   height: 30px;
   line-height: 30px;
-  height: 60dvh;
+  height: 50px;
 }
