@@ -28,8 +28,8 @@ function fillInfos() {
 fillInfos()
 
 let user = {
-  registerAge: { age: '20 Anos' },
-  registerUrlp: { urlp: 'www.Rede-Social/myprofile/Victor-Gabriel.com' },
+  registerAge: { age: "UserAge" },
+  registerUrlp: { urlp: "userUrlProfile" },
   registerTitle: {
     title: 'Administrador',
     imageTitle: 'imagens/grown_adm.png',

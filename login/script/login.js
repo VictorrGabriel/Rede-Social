@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let userData = [{name: "Victor", email: "vg154476@gamil.com", password: "Victor123"}]
+    let userData = [{name: useraName, email: UserEmail, password: UserPassword}]
 
     const $email = document.getElementById('email');
     const $password = document.getElementById('password');
