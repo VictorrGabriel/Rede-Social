@@ -1,12 +1,12 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    let userData = [{name: useraName, email: UserEmail, password: UserPassword}]
+   // let userData = [{name: useraName, email: UserEmail, password: UserPassword}]
 
+   const userData = JSON.parse(localStorage.getItem('userInfo')); 
     const $email = document.getElementById('email');
     const $password = document.getElementById('password');
     const $login = document.getElementById("login-btn");
     const $form = document.getElementById('form');
-    /* const userData = JSON.parse(localStorage.getItem('userInfo')); */
   
   
     $form.addEventListener("submit", e => {
